@@ -10,7 +10,7 @@ class Channel extends Model
     use HasFactory;
 
     protected $fillable = ['title'];
-
+    
     public function discussions(){
 
         return $this->hasMany(Discussion::class);

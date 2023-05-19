@@ -12,12 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('replies', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->text('content');
             $table->integer('user_id')->unsigned();
-            $table->integer('discussion_id');
-            $table->foreign('discussion_id')->on('id')->references('discussion_id')->onDelete('cascade');
-            $table->foreign('user_id')->on('id')->references('users')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->integer('discussion_id')->unsigned();
+            $table->foreign('discussion_id')->references('id')->on('discussions')->onDelete('cascade');
             $table->timestamps();
         });
     }
