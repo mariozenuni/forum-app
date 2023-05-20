@@ -20,15 +20,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
-
-
+//Public routes
 Route::post('auth/register',[AuthController::class,'register']);
 Route::post('auth/login',[AuthController::class,'login']);
 
-
+//protected routes
 Route::group(['middleware'=>['auth:sanctum']],function(){
     Route::apiResource('channels',ChannelsController::class);
     Route::apiResource('discussions',DiscussionsController::class);
