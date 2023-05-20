@@ -5,6 +5,8 @@ namespace App\Services\ChannelService;
 use App\Repositories\ChannelRepository;
 use Illuminate\Http\Resources\Json\JsonResource;
 use App\Models\Channel;
+use PhpParser\Node\Expr\Cast\Object_;
+
 class ChannelService
 {
     protected $repository;
@@ -22,5 +24,16 @@ class ChannelService
 
             return $this->repository->create($attributes);
     }
+
+    public function update(Channel $channel , array $attributes) {
+
+        return $this->repository->update($channel,$attributes); 
+}
+
+
+public function destroy(Channel $channel) {
+
+    return $this->repository->destroy($channel); 
+}
 
 }

@@ -19,11 +19,12 @@ class ChannelsController extends Controller
 
          return ChannelResource::collection($channelService->index()); 
       }
-
+      /*
       public function show(Channel $channel)
       {
         return new ChannelResource($channel);
       }
+      */
 
         public function store(StoreChannelRequest $request, ChannelService $channelService) : JsonResource{
                     
@@ -31,19 +32,19 @@ class ChannelsController extends Controller
         }
 
   
-        public function update(UpdateChannelRequest $request, Channel $channel):JsonResource{
+        public function update(UpdateChannelRequest $request, ChannelService $channelService,Channel $channel):JsonResource{
           
-                $channel->update($request->validated());
-       
+              $channelService->update($channel,$request->only(['title']));
+
              return new ChannelUpdateResource($channel);
           
         }
         
         
-    public function destroy(Channel $channel)
+    public function destroy(Channel $channel, ChannelService $channelService)
     {
-            $channel->delete();
+            return $channelService->destroy($channel);
 
-         return response()->json(null, 204);
+       
     }
 }
