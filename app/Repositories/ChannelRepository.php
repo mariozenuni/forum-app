@@ -18,11 +18,12 @@ class ChannelRepository
             'title'=>data_get($attibutes, 'title'),
         ]);
     }
-
+    /*
     public function show()
     {
 
     }
+    */
 
     public function update(Channel $channel, array $attibutes)
     {
