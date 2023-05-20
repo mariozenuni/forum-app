@@ -52,5 +52,19 @@ class DiscussionsController extends Controller
          return response()->json(null, 204);
     }
 
+    /**
+     * Search for a discussion
+     * 
+     * @param str $title
+     * @return \Illuminate\Http\Resources\Json\JsonResource;
+     * 
+     */
+
+     public function search($title){
+
+        return Discussion::where('title','like','%'.$title.'%')->get();
+
+     }
+
 
 }
