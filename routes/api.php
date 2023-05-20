@@ -32,6 +32,7 @@ Route::post('auth/login',[AuthController::class,'login']);
 Route::group(['middleware'=>['auth:sanctum']],function(){
     Route::apiResource('channels',ChannelsController::class);
     Route::apiResource('discussions',DiscussionsController::class);
+    Route::get('discussion/search/{title}',[DiscussionsController::class,'search']);
     Route::post('/discussion/reply/{discussion}',[RepliesController::class,'reply']);   
     Route::put('/discussion/reply/{reply}',[RepliesController::class,'updateReply']);  
     Route::delete('/discussion/reply/{reply}',[RepliesController::class,'deleteReply']);  
