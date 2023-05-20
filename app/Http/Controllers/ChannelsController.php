@@ -9,13 +9,15 @@ use Illuminate\Http\Request;
 use App\Models\Channel;
 use App\Http\Requests\Channel\StoreChannelRequest;
 use App\Http\Requests\Channel\UpdateChannelRequest;
+use App\Services\ChannelService\ChannelService;
+
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class ChannelsController extends Controller
 {
-    public function index() : JsonResource {
+    public function index(ChannelService $channelService) : JsonResource {
 
-         return ChannelResource::collection(Channel::paginate(5)); 
+         return ChannelResource::collection($channelService->index()); 
       }
 
       public function show(Channel $channel)
@@ -23,9 +25,9 @@ class ChannelsController extends Controller
         return new ChannelResource($channel);
       }
 
-        public function store(StoreChannelRequest $request) : JsonResource{
+        public function store(StoreChannelRequest $request, ChannelService $channelService) : JsonResource{
                     
-            return new ChannelPostResource(Channel::create($request->validated())); 
+            return new ChannelResource($channelService->create($request->only(['title'])));
         }
 
   
