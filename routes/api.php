@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\ChannelsController;
+use App\Http\Controllers\DiscussionsController;
 use App\Http\Controllers\UsersController;
+use App\Models\Discussion;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -22,3 +24,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::apiResource('channels',ChannelsController::class);
 Route::apiResource('users',UsersController::class);
+Route::apiResource('discussions',DiscussionsController::class);

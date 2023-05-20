@@ -14,6 +14,7 @@ class UsersController extends Controller
      */
     public function store(StoreUserRequest $request)
     {   
+     
         return new UserPostResource(User::create($request->validated()));
     }
 
