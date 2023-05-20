@@ -3,7 +3,6 @@ namespace App\Repositories;
 
 use App\Models\Channel;
 use Exception;
-use Illuminate\Support\Facades\DB;
 
 class ChannelRepository
 {
@@ -14,9 +13,18 @@ class ChannelRepository
 
     public function create(array $attibutes): Channel
     {
-        return Channel::create([
-            'title'=>data_get($attibutes, 'title'),
-        ]);
+        try{
+
+            $channel = Channel::create([
+                'title'=>data_get($attibutes, 'title'),
+            ]);
+
+        }catch(Exception $e){
+            throw new Exception('Something went wrong while updating '. $e->getMessage(),500);
+        }
+       
+
+        return $channel;
     }
     /*
     public function show()
@@ -27,19 +35,27 @@ class ChannelRepository
 
     public function update(Channel $channel, array $attibutes)
     {
-    
-        $updated = $channel->update([
-            'title' => data_get($attibutes,'title')
-        ]);
+        try{
+            $updated = $channel->update([
+                'title' => data_get($attibutes,'title')
+            ]);
+
+        }catch(Exception $e){
+            throw new Exception('Something went wrong while updating '. $e->getMessage(),500);
+        }
+      
 
         return $updated ;
 
     }
 
     public function destroy(Channel $channel) {
-    
-        $channel->delete($channel); 
-
+        try{
+            $channel->delete($channel); 
+        }catch(Exception $e){
+            throw new Exception('Something went wrong while deleting '. $e->getMessage(),500);
+        }
+      
         return response()->json(null, 204);
     }
 }
