@@ -9,6 +9,7 @@ use App\Http\Requests\Discussion\DiscussionUpdateRequest;
 use App\Http\Resources\Discussions\DiscussionPostResource;
 use App\Http\Resources\Discussions\DiscussionResource;
 use App\Http\Resources\Discussions\DiscussionUpdateResource;
+
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class DiscussionsController extends Controller
@@ -50,5 +51,6 @@ class DiscussionsController extends Controller
 
          return response()->json(null, 204);
     }
+
 
 }
