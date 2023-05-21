@@ -8,6 +8,14 @@ use App\Http\Resources\Reply\ReplyStoreResource;
 use App\Http\Resources\Reply\ReplyUpdateResource;
 use App\Services\Reply\ReplyService;
 use Illuminate\Routing\Controller;
+
+   /**
+     * @group Reply Management
+     * 
+     * APIs to manage the reply CRUD
+     * 
+     */
+
 class RepliesController extends Controller
 {
     

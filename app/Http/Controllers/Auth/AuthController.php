@@ -11,8 +11,17 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Routing\Controller;
 
+ /**
+     * @group User Management
+     * 
+     * APIs to manage the user registration and login
+     *
+     * 
+     */
+    
 class AuthController extends Controller
 {
+   
     public function register(RegisterUserRequest $request){
 
         $user = User::create([

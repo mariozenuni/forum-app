@@ -13,6 +13,12 @@ use App\Services\Channel\ChannelService;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Routing\Controller;
 
+ /**
+     * @group Channels Management
+     * 
+     * APIs to manage the channel CRUD
+     * 
+     */
 class ChannelsController extends Controller
 {
     public function index(ChannelService $channelService) : JsonResource {

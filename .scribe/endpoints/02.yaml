@@ -1,0 +1,182 @@
+name: 'Discussion Management'
+description: |-
+
+  APIs to manage the discussion CRUD
+endpoints:
+  -
+    httpMethods:
+      - POST
+    uri: api/discussions
+    metadata:
+      groupName: 'Discussion Management'
+      groupDescription: |-
+
+        APIs to manage the discussion CRUD
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      user_id:
+        name: user_id
+        description: ''
+        required: true
+        example: recusandae
+        type: string
+        custom: []
+      channel_id:
+        name: channel_id
+        description: ''
+        required: true
+        example: molestiae
+        type: string
+        custom: []
+      title:
+        name: title
+        description: ''
+        required: true
+        example: eveniet
+        type: string
+        custom: []
+      content:
+        name: content
+        description: ''
+        required: true
+        example: aperiam
+        type: string
+        custom: []
+    cleanBodyParameters:
+      user_id: recusandae
+      channel_id: molestiae
+      title: eveniet
+      content: aperiam
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+      - PATCH
+    uri: 'api/discussions/{id}'
+    metadata:
+      groupName: 'Discussion Management'
+      groupDescription: |-
+
+        APIs to manage the discussion CRUD
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the discussion.'
+        required: true
+        example: 16
+        type: integer
+        custom: []
+    cleanUrlParameters:
+      id: 16
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      user_id:
+        name: user_id
+        description: ''
+        required: true
+        example: fugit
+        type: string
+        custom: []
+      channel_id:
+        name: channel_id
+        description: ''
+        required: true
+        example: beatae
+        type: string
+        custom: []
+      title:
+        name: title
+        description: ''
+        required: true
+        example: earum
+        type: string
+        custom: []
+      content:
+        name: content
+        description: ''
+        required: true
+        example: et
+        type: string
+        custom: []
+    cleanBodyParameters:
+      user_id: fugit
+      channel_id: beatae
+      title: earum
+      content: et
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/discussions/{id}'
+    metadata:
+      groupName: 'Discussion Management'
+      groupDescription: |-
+
+        APIs to manage the discussion CRUD
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the discussion.'
+        required: true
+        example: 15
+        type: integer
+        custom: []
+    cleanUrlParameters:
+      id: 15
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []

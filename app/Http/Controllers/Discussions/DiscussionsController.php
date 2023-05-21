@@ -15,6 +15,14 @@ use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Routing\Controller;
 use Illuminate\Http\JsonResponse;
+
+ /**
+     * @group Discussion Management
+     * 
+     * APIs to manage the discussion CRUD
+     * 
+     */
+
 class DiscussionsController extends Controller
 {
   
@@ -22,7 +30,7 @@ class DiscussionsController extends Controller
         return DiscussionResource::collection($discussionService->index()); 
      }
 
-
+   
     public function store(DiscussionPostRequest $request, DiscussionService $discussionService){
 
 

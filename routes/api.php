@@ -26,6 +26,7 @@ Route::post('auth/login',[AuthController::class,'login']);
 
 //protected routes
 Route::group(['middleware'=>['auth:sanctum']],function(){
+
     Route::apiResource('channels',ChannelsController::class);
     Route::apiResource('discussions',DiscussionsController::class);
     Route::get('discussion/search/{title}',[DiscussionsController::class,'search']);

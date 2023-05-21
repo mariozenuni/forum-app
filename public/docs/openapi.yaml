@@ -1,0 +1,344 @@
+openapi: 3.0.3
+info:
+  title: Laravel
+  description: ''
+  version: 1.0.0
+servers:
+  -
+    url: 'http://localhost'
+paths:
+  /api/channels:
+    post:
+      summary: ''
+      operationId: postApiChannels
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - 'Channels Management'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  description: 'Must be at least 3 characters. Must not be greater than 10 characters.'
+                  example: vuuejowqw
+              required:
+                - title
+      security: []
+  '/api/channels/{id}':
+    put:
+      summary: ''
+      operationId: putApiChannelsId
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - 'Channels Management'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  description: 'Must be at least 3 characters. Must not be greater than 10 characters.'
+                  example: zioeqeo
+              required:
+                - title
+      security: []
+    delete:
+      summary: ''
+      operationId: deleteApiChannelsId
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - 'Channels Management'
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the channel.'
+        example: 3
+        required: true
+        schema:
+          type: integer
+  /api/discussions:
+    post:
+      summary: ''
+      operationId: postApiDiscussions
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - 'Discussion Management'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  type: string
+                  description: ''
+                  example: recusandae
+                channel_id:
+                  type: string
+                  description: ''
+                  example: molestiae
+                title:
+                  type: string
+                  description: ''
+                  example: eveniet
+                content:
+                  type: string
+                  description: ''
+                  example: aperiam
+              required:
+                - user_id
+                - channel_id
+                - title
+                - content
+      security: []
+  '/api/discussions/{id}':
+    put:
+      summary: ''
+      operationId: putApiDiscussionsId
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - 'Discussion Management'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  type: string
+                  description: ''
+                  example: fugit
+                channel_id:
+                  type: string
+                  description: ''
+                  example: beatae
+                title:
+                  type: string
+                  description: ''
+                  example: earum
+                content:
+                  type: string
+                  description: ''
+                  example: et
+              required:
+                - user_id
+                - channel_id
+                - title
+                - content
+      security: []
+    delete:
+      summary: ''
+      operationId: deleteApiDiscussionsId
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - 'Discussion Management'
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the discussion.'
+        example: 16
+        required: true
+        schema:
+          type: integer
+  '/api/discussion/reply/{discussion}':
+    post:
+      summary: ''
+      operationId: postApiDiscussionReplyDiscussion
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - 'Reply Management'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  type: string
+                  description: ''
+                  example: qui
+                discussion_id:
+                  type: string
+                  description: ''
+                  example: quia
+                content:
+                  type: string
+                  description: ''
+                  example: natus
+              required:
+                - user_id
+                - discussion_id
+                - content
+      security: []
+    parameters:
+      -
+        in: path
+        name: discussion
+        description: ''
+        example: 8
+        required: true
+        schema:
+          type: integer
+  '/api/discussion/reply/{reply_id}':
+    put:
+      summary: ''
+      operationId: putApiDiscussionReplyReply_id
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - 'Reply Management'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  type: string
+                  description: ''
+                  example: quaerat
+                discussion_id:
+                  type: string
+                  description: ''
+                  example: rerum
+                content:
+                  type: string
+                  description: ''
+                  example: tempore
+              required:
+                - user_id
+                - discussion_id
+                - content
+      security: []
+    delete:
+      summary: ''
+      operationId: deleteApiDiscussionReplyReply_id
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - 'Reply Management'
+      security: []
+    parameters:
+      -
+        in: path
+        name: reply_id
+        description: 'The ID of the reply.'
+        example: 9
+        required: true
+        schema:
+          type: integer
+  /api/auth/register:
+    post:
+      summary: ''
+      operationId: postApiAuthRegister
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - 'User Management'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: ''
+                  example: fugiat
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: lhodkiewicz@example.net
+                password:
+                  type: string
+                  description: 'Must be at least 6 characters.'
+                  example: 'F^G/9G+*idJ;'
+              required:
+                - name
+                - email
+                - password
+      security: []
+  /api/auth/login:
+    post:
+      summary: ''
+      operationId: postApiAuthLogin
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - 'User Management'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: ''
+                  example: dicta
+                password:
+                  type: string
+                  description: 'Must be at least 6 characters.'
+                  example: '$c"_-_'
+              required:
+                - email
+                - password
+      security: []
+  /api/logout:
+    post:
+      summary: ''
+      operationId: postApiLogout
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - 'User Management'
+      security: []
+tags:
+  -
+    name: 'Channels Management'
+    description: "\nAPIs to manage the channel CRUD"
+  -
+    name: 'Discussion Management'
+    description: "\nAPIs to manage the discussion CRUD"
+  -
+    name: 'Reply Management'
+    description: "\nAPIs to manage the reply CRUD"
+  -
+    name: 'User Management'
+    description: "\nAPIs to manage the user registration and login"
