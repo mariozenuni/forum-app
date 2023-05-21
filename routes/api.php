@@ -1,9 +1,9 @@
 <?php
 
-use App\Http\Controllers\AuthController;
-use App\Http\Controllers\ChannelsController;
-use App\Http\Controllers\DiscussionsController;
-use App\Http\Controllers\RepliesController;
+use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\Channels\ChannelsController;
+use App\Http\Controllers\Discussions\DiscussionsController;
+use App\Http\Controllers\Replies\RepliesController;
 use App\Http\Controllers\UsersController;
 use App\Models\Discussion;
 use Illuminate\Http\Request;
