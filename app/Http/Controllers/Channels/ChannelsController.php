@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Channels;
 
 use App\Http\Resources\Channels\ChannelPostResource;
 use App\Http\Resources\Channels\ChannelResource;
@@ -9,9 +9,9 @@ use Illuminate\Http\Request;
 use App\Models\Channel;
 use App\Http\Requests\Channel\StoreChannelRequest;
 use App\Http\Requests\Channel\UpdateChannelRequest;
-use App\Services\ChannelService\ChannelService;
-
+use App\Services\Channel\ChannelService;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Routing\Controller;
 
 class ChannelsController extends Controller
 {
@@ -19,12 +19,6 @@ class ChannelsController extends Controller
 
          return ChannelResource::collection($channelService->index()); 
       }
-      /*
-      public function show(Channel $channel)
-      {
-        return new ChannelResource($channel);
-      }
-      */
 
         public function store(StoreChannelRequest $request, ChannelService $channelService) : JsonResource{
                     
@@ -43,8 +37,6 @@ class ChannelsController extends Controller
         
     public function destroy(Channel $channel, ChannelService $channelService)
     {
-            return $channelService->destroy($channel);
-
-       
+            return $channelService->destroy($channel);    
     }
 }

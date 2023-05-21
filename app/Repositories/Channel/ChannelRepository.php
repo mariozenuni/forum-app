@@ -1,5 +1,5 @@
 <?php
-namespace App\Repositories;
+namespace App\Repositories\Channel;
 
 use App\Models\Channel;
 use Exception;
