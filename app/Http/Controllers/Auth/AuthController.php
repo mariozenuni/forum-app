@@ -10,6 +10,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Routing\Controller;
+use App\Http\Resources\Users\UserResource;
 
  /**
      * @group User Management
@@ -71,5 +72,10 @@ class AuthController extends Controller
         return response([
             'message'=>'User Logged out'
         ]);
+    }
+
+    public function getUser(Request $request)
+    {
+        return new UserResource($request->user());
     }
 }

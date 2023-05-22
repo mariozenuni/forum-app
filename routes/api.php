@@ -25,8 +25,21 @@ Route::post('auth/register',[AuthController::class,'register']);
 Route::post('auth/login',[AuthController::class,'login']);
 
 //protected routes
+/*
 Route::group(['middleware'=>['auth:sanctum']],function(){
 
+    Route::apiResource('channels',ChannelsController::class);
+    Route::apiResource('discussions',DiscussionsController::class);
+    Route::get('discussion/search/{title}',[DiscussionsController::class,'search']);
+    Route::post('/discussion/reply/{discussion}',[RepliesController::class,'reply']);   
+    Route::put('/discussion/reply/{reply}',[RepliesController::class,'updateReply']);  
+    Route::delete('/discussion/reply/{reply}',[RepliesController::class,'deleteReply']);  
+    Route::post('logout',[AuthController::class,'logout']);
+});
+*/
+
+Route::middleware('auth:sanctum')->group(function(){
+    Route::get('/user', [AuthController::class, 'getUser']);
     Route::apiResource('channels',ChannelsController::class);
     Route::apiResource('discussions',DiscussionsController::class);
     Route::get('discussion/search/{title}',[DiscussionsController::class,'search']);

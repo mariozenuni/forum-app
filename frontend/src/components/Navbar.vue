@@ -4,8 +4,7 @@
       <Menu as="div" class="relative inline-block text-left">
         <MenuButton class="flex items-center">
           <img src="https://randomuser.me/api/portraits/men/1.jpg" class="rounded-full w-8 mr-2">
-          <small>Current user</small>
-            <span><a href=""> Button</a></span>
+          <small v-if="currentUser">{{ currentUser.name }}</small> 
         </MenuButton>
   
         <transition
@@ -62,20 +61,31 @@
   import {MenuIcon, LogoutIcon, UserIcon} from '@vue-hero-icons/outline'
   import {Menu, MenuButton, MenuItems, MenuItem} from '@headlessui/vue'
   import {ChevronDownIcon} from '@vue-hero-icons/solid'
-
+import store from '../store'
   import router from "../router";
-  import {computed} from "vue";
+  import {computed,onMounted} from "vue";
   
-  const emit = defineEmits(['toggle-sidebar'])
+
   
-  const currentUser = computed(() => store.state.user.data);
+  const currentUser = computed(() => store.state.user.data.data);
   
   function logout() {
     store.dispatch('logout')
       .then(() => {
         router.push({name: 'login'})
       })
+    }
+
+  onMounted(() => {
+    getCurrentUser();
+    
+  });
+
+  function getCurrentUser(){
+    store.dispatch('getCurrentUser');
   }
+  
+  
   
   </script>
   
